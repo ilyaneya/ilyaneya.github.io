@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100vh;
+  margin: 0;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}

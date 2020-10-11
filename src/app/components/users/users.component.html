@@ -1,0 +1,24 @@
+<h1 class="header">Users page</h1>
+
+<div class="search__container">
+  <input class="search__input" placeholder="Input username to filter" (input)="filter($event)">
+</div>
+<div class="users-table__container">
+  <div class="users-table__row header-row">
+    <div class="users-table-cell header-cell">ID / is active
+      <div class="is_active"></div>
+      <div [ngClass]="{'triangle-up': sorting === 'up', 'triangle-down': sorting === 'down'}" (click)="sort()"></div>
+    </div>
+    <div class="users-table-cell header-cell">Username</div>
+    <div class="users-table-cell header-cell">Name and Surname</div>
+  </div>
+  <div class="users-table__row" *ngFor="let user of users">
+    <div class="users-table-cell">{{user.id}}
+    <div class="is_active" [ngClass]="{'active': user.is_active}"></div>
+    </div>
+    <div class="users-table-cell">{{user.username}}</div>
+    <div class="users-table-cell">{{user.first_name + ' ' + user.last_name}}</div>
+  </div>
+
+  <button class="logout-button" (click)="onLogout()">Logout</button>
+</div>
