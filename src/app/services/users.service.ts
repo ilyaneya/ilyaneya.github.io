@@ -8,6 +8,6 @@ export class UsersService{
   constructor(private http: HttpClient ) {
   }
   public getUsers(): Observable<IUser[]>{
-    return this.http.get<IUser[]>('http://emphasoft-test-assignment.herokuapp.com/api/v1/users/');
+    return this.http.get<IUser[]>('https://emphasoft-test-assignment.herokuapp.com/api/v1/users/');
   }
 }
