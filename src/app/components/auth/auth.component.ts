@@ -4,6 +4,7 @@ import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
+import {LoaderService} from "../../services/loader.service";
 
 @Component({
   selector: 'app-auth',
@@ -13,6 +14,7 @@ import {throwError} from 'rxjs';
 export class AuthComponent implements OnInit {
 public form: FormGroup;
 public errorMessage: string;
+private loaderService: LoaderService;
 
   constructor(private authService: AuthService, private router: Router) {
     this.form = new FormGroup({

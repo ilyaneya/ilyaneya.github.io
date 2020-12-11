@@ -12,6 +12,9 @@ import { UsersComponent } from './components/users/users.component';
 import {UsersService} from './services/users.service';
 import {UsersCanActivateGuard} from './guards/usersCanActivate.guard';
 import {AuthCanActivateGuard} from './guards/authCanActivate.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {LoaderService} from './services/loader.service';
 const routes: Routes = [
   {
   path: 'auth',
@@ -37,13 +40,15 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes),
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        RouterModule.forRoot(routes),
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatProgressSpinnerModule,
+    ],
   providers: [
     AuthService,
     {
@@ -53,7 +58,8 @@ const routes: Routes = [
     },
     UsersService,
     UsersCanActivateGuard,
-    AuthCanActivateGuard
+    AuthCanActivateGuard,
+    LoaderService
   ],
   bootstrap: [AppComponent]
 })
