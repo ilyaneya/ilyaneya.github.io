@@ -18,7 +18,5 @@ export class LoaderService{
  public setLoadingStatus(isLoading: boolean): void {
      this._isLoading$.next(isLoading);
    }
-
   constructor(){}
-
 }
