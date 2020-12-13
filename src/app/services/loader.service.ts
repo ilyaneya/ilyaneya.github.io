@@ -16,7 +16,11 @@ export class LoaderService{
   }
 
  public setLoadingStatus(isLoading: boolean): void {
-     this._isLoading$.next(isLoading);
-   }
+   if (!isLoading){
+     setTimeout(() => this._isLoading$.next(isLoading), 600);
+    }else {
+   this._isLoading$.next(isLoading);
+ }
+  }
   constructor(){}
 }

@@ -9,8 +9,6 @@ export class UsersService{
   constructor(private http: HttpClient, private loaderService: LoaderService) {
   }
   public getUsers(): Observable<IUser[]>{
-    this.loaderService.setLoadingStatus(true);
     return this.http.get<IUser[]>('https://emphasoft-test-assignment.herokuapp.com/api/v1/users/');
-    this.loaderService.setLoadingStatus(false);
   }
 }
