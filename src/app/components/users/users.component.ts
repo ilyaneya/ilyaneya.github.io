@@ -4,6 +4,7 @@ import {IUser} from '../../interface/user.interface';
 import {AuthService} from '../../services/auth.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
+import {LoaderService} from "../../services/loader.service";
 
 @Component({
   selector: 'app-users',
@@ -18,7 +19,8 @@ export class UsersComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private loaderService: LoaderService) {
     this.searchForm = new FormGroup({
       query: new FormControl('')
       }
@@ -26,9 +28,11 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loaderService.setLoadingStatus(true);
     this.usersService.getUsers().subscribe((response) => {
       this.users = response;
       this.sort();
+      this.loaderService.setLoadingStatus(false);
     });
   }
 
